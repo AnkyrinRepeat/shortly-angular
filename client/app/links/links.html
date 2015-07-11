@@ -1,3 +1,7 @@
-<div id='container'>
-  <!-- Your html here -->
+<div id='container' ng-controller='LinksController' ng-init=[1,2,3]>
+  <h1>Links</h1>
+  <a href ='/#/shorten'>Shorten</a>
+  <ul ng-repeat='link in data.links'>
+  {{link.url}} Views : {{links.__v}}<br><a href = '{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
+</div></ul>
 </div>
