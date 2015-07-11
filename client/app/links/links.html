@@ -1,7 +1,11 @@
 <div id='container' ng-controller='LinksController' ng-init=[1,2,3]>
   <h1>Links</h1>
   <a href ='/#/shorten'>Shorten</a>
-  <ul ng-repeat='link in data.links'>
-  {{link.url}} Views : {{links.__v}}<br><a href = '{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
+  <a href = '/#/' ng-show='loggedin' ng-click='signout()'>Sign Out</a>
+  <a href = '/#/signin' ng-hide='loggedin'>Sign In</a>
+
+  <ul ng-repeat='link in data.links | orderBy:"-visits"'>
+  {{link.url}} Views : {{link.visits}}<br><a href = '{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
 </div></ul>
 </div>
+

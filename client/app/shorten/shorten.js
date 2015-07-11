@@ -3,9 +3,15 @@ angular.module('shortly.shorten', ['shortly.services'])
 .controller('ShortenController', function ($scope, $location, Links, Auth) {
   $scope.link = {};
   $scope.url = ''
+  $scope.loggedin = false;
+
+  $scope.signout = function(){
+    Auth.signout()
+  }
 
   $scope.addLink = function(){
-    if(!Auth.isAuth) {
+    console.log(Auth.isAuth())
+    if(Auth.isAuth) {
       console.log($scope.url)
       Links.sendLink({url : $scope.url});
     } else {
@@ -13,4 +19,9 @@ angular.module('shortly.shorten', ['shortly.services'])
       $location.path('/signin');
     }
   };
+
+  $scope.init = function(){
+    $scope.loggedin = Auth.isAuth()
+  }
+  $scope.init()
 })
