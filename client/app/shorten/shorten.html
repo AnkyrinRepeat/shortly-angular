@@ -1,10 +1,10 @@
 <div id='container' ng-controller='ShortenController'>
-  <h1>Shorten</h1>
+  <h1>Shorten</h3>
   <a href ='/#/links'>Links</a><br><br><br>
   <a href = '/#/' ng-show='loggedin' ng-click='signout()'>Sign Out</a>
-  <a href = '/#/signin' ng-hide='loggedin'>Sign In</a>
+  <a href = '/#/signin' ng-hide='loggedin'>Sign In</a><br>
 
-  <form>
+  <form class="input-control text">
     <input class='text' type='text' name='url' ng-model='url'>
     <input type='submit' value='Shorten' ng-click='addLink(url)'>
   </form>

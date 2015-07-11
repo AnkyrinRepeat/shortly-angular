@@ -1,9 +1,24 @@
 <div id='signin'>
-  <h1>signin</h1>
-  <form name="signinForm" ng-submit='signin()'>
+  <h3>Sign In</h3>
+  <div class='input-control modern text iconic' name="signinForm" >
     <input type='text'ng-model='user.username'>
+    <span class="label">You login</span>
+    <span class="informer">Please enter you login or email</span>
+    <span class="placeholder" ng-hide='!!user.username'>Input login</span>
+    <span class="icon mif-user"></span>
+  </div>
+
+    <div class="input-control modern password iconic" data-role="input">
     <input type="password" ng-model='user.password'>
-    <button>signin</button>
-  </form>
-  <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
+    <span class="label">You password</span>
+    <span class="informer">Please enter you password</span>
+    <span class="placeholder" ng-hide='!!user.password'>Input password</span>
+    <span class="icon mif-lock"></span>
+</div>
+    <br>
+    <!-- <button class="button helper-button reveal"><span class="mif-looks"></span></button> -->
+
+    <button class="button link" ng-if='user.username.length > 0 && user.password.length > 0' ng-click='signin()'>signin</button>
+    <br>
+    <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
 </div>

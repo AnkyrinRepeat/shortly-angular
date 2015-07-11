@@ -1,10 +1,14 @@
 <div id='container' ng-controller='LinksController' ng-init=[1,2,3]>
-  <h1>Links</h1>
+  <h3>Links</h3>
   <a href ='/#/shorten'>Shorten</a>
   <a href = '/#/' ng-show='loggedin' ng-click='signout()'>Sign Out</a>
   <a href = '/#/signin' ng-hide='loggedin'>Sign In</a>
 
-  <ul ng-repeat='link in data.links | orderBy:"-visits"'>
+  <!-- <form> -->
+    <input type = 'text', ng-model='search' placeholder='Search URLs'></input>
+  <!-- </form> -->
+
+  <ul ng-repeat='link in data.links | filter:search | orderBy:"-visits"' >
   {{link.url}} Views : {{link.visits}}<br><a href = '{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
 </div></ul>
 </div>
